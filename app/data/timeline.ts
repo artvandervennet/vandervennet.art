@@ -16,6 +16,8 @@ export interface TimelineEntry {
 }
 
 // Oldest first: add new entries at the end. The page shows them newest first.
+// This is where I have been: schools, jobs, an internship, the two contest results.
+// Projects have their own section and don't go here.
 // A branch forks at its first entry and merges back after its last, unless it is open.
 export const timeline: TimelineEntry[] = [
   {
@@ -42,14 +44,8 @@ export const timeline: TimelineEntry[] = [
   {
     when: '2023',
     datetime: '2023',
-    title: 'Electricity-Electronics at Edugo Glorieux',
-    text: ['Secondary school, with an internship at Fixsus programming and installing custom home automation.'],
-  },
-  {
-    when: '2023',
-    datetime: '2023',
     title: 'Started Electronics-ICT at Odisee',
-    text: ['A professional bachelor, in software and web development.'],
+    text: ['A professional bachelor in software and web development, after Electricity-Electronics in secondary school.'],
     branch: 'odisee',
     pigment: 'partner',
   },
@@ -62,13 +58,6 @@ export const timeline: TimelineEntry[] = [
     link: { href: 'https://www.vlaamseprogrammeerwedstrijd.be/2024/', label: 'Vlaamse Programmeerwedstrijd 2024' },
   },
   {
-    when: 'Sep 2025 – Mar 2026',
-    datetime: '2025-09',
-    title: 'Dengue early warning',
-    text: ['A dashboard that visualises dengue data and shows where the trends are heading, so an outbreak can be stopped before it spreads further. I worked on the front end and the back end, in a team of six.'],
-    branch: 'odisee',
-  },
-  {
     when: 'Feb – Apr 2026',
     datetime: '2026-02',
     title: 'Internship at In The Pocket',
@@ -78,25 +67,8 @@ export const timeline: TimelineEntry[] = [
   {
     when: '2026',
     datetime: '2026',
-    title: 'Bachelor’s thesis',
-    text: ['Enforcing and automating web accessibility through a React component library. That library became Artui.'],
-    branch: 'odisee',
-  },
-  {
-    when: '2026',
-    datetime: '2026',
-    title: 'Two hackathons at Odisee',
-    text: [
-      'The GitLab Duo AI hackathon, where we set up AI workflows on GitLab Duo.',
-      'The UX hackathon for care, where we went through a whole UX process and ended with a solution for the stress that staff shortages cause in residential care centres.',
-    ],
-    branch: 'odisee',
-  },
-  {
-    when: '2026',
-    datetime: '2026',
     title: 'Graduated magna cum laude',
-    text: ['Bachelor in Electronics-ICT.'],
+    text: ['Bachelor in Electronics-ICT. My thesis, on enforcing web accessibility through a React component library, became Artui.'],
     branch: 'odisee',
   },
   {
