@@ -50,12 +50,36 @@ The "Leave a mark" section is the one part with a backend. Nitro renders the pag
 
 Entries show up straight away once they pass those checks. Each list also has a per-address rate limit.
 
-To delete an entry, set `NUXT_ADMIN_TOKEN` on the server and call:
+### Looking after it
+
+```sh
+node scripts/guestbook.mjs                                             # what is in it
+NUXT_ADMIN_TOKEN=… node scripts/guestbook.mjs remove <address>         # take one entry out
+```
+
+The address is the first thing on an entry's line in the list: the post's address for a webmention, the WebID for a Solid card. Removing needs the owner's token. Set it once on the Pi:
+
+```sh
+ssh artvandervennet@artvandervennet.local
+openssl rand -hex 32                      # make a token; keep it in your password manager
+nano ~/.config/vandervennet.art.env       # put it after NUXT_ADMIN_TOKEN=
+pm2 restart portfolio                     # the site reads the file when it starts
+```
+
+Without a token nothing can be removed, by anyone. The same thing with curl:
 
 ```sh
 curl -X DELETE -H "Authorization: Bearer $TOKEN" "https://vandervennet.art/api/mentions?source=<address of the post>"
 curl -X DELETE -H "Authorization: Bearer $TOKEN" "https://vandervennet.art/api/visitors?webid=<the WebID>"
 ```
+
+### Telling another site you linked to it
+
+```sh
+node scripts/send-webmention.mjs https://michielvandevelde.com/
+```
+
+It checks that this site really links to that page, finds where the other site takes webmentions, and sends one. A site that doesn't take them is reported as such.
 
 ## Deploy
 
