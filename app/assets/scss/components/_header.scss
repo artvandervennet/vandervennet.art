@@ -1,0 +1,11 @@
+@use '@vandervennet/gesso/scss' as *;
+
+// The header is Gesso's <art-header>. On a narrow screen there is no room for the word beside
+// the colour-scheme switch: its dab stays, and the button's accessible name still says it.
+@include layer(components) {
+  @include until(compact) {
+    art-header > art-scheme::part(name) {
+      display: none;
+    }
+  }
+}

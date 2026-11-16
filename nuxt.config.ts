@@ -23,8 +23,17 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      htmlAttrs: { lang: 'en', 'data-theme': 'studio' },
+      // data-scheme: light, dark, or "auto" to follow the visitor's system. <art-scheme> in the
+      // header changes it and remembers the choice.
+      htmlAttrs: { lang: 'en', 'data-theme': 'studio', 'data-scheme': 'auto' },
       meta: [{ name: 'viewport', content: 'width=device-width, initial-scale=1' }],
+      script: [
+        {
+          // the remembered choice, applied before the first paint so the page never flashes
+          innerHTML:
+            "try { const s = localStorage.getItem('gesso-scheme'); if (s) document.documentElement.dataset.scheme = s; } catch {}",
+        },
+      ],
     },
   },
 

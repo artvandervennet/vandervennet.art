@@ -2,6 +2,7 @@
 // (bands, two-column sections, the card) and its Sass functions. What is here is only what is
 // particular to this site. Gesso's stylesheets load before this file (nuxt.config.ts).
 @use 'layers';
+@use 'components/header';
 @use 'components/timeline';
 @use 'components/projects';
 @use 'components/interests';

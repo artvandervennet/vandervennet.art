@@ -8,5 +8,7 @@ import { nav, site } from '~/data/site'
   <art-header role="banner" label="Sections" data-paint="deep">
     <a slot="wordmark" href="#top">{{ site.name }}</a>
     <a v-for="item in nav" :key="item.id" :href="`#${item.id}`">{{ item.label }}</a>
+    <!-- light, dark or the visitor's system; every Gesso theme has both schemes -->
+    <art-scheme slot="actions" remember />
   </art-header>
 </template>

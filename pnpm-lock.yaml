@@ -15,8 +15,8 @@ importers:
         specifier: ^1.2.2
         version: 1.2.2(@inrupt/solid-client@4.0.0)
       '@vandervennet/gesso':
-        specifier: github:artvandervennet/gesso#v1.1.0
-        version: git+ssh://git@github.com/artvandervennet/gesso.git#4042bd62b468aa0a1e839336d4ec9c52d1221023
+        specifier: github:artvandervennet/gesso#v1.2.5
+        version: https://codeload.github.com/artvandervennet/gesso/tar.gz/65280d4e7c3fc6d5911cb09d374df0c32fd25ee6
       microformats-parser:
         specifier: ^2.0.6
         version: 2.0.6
@@ -1074,9 +1074,9 @@ packages:
       webpack:
         optional: true
 
-  '@vandervennet/gesso@git+ssh://git@github.com/artvandervennet/gesso.git#4042bd62b468aa0a1e839336d4ec9c52d1221023':
-    resolution: {commit: 4042bd62b468aa0a1e839336d4ec9c52d1221023, repo: git@github.com:artvandervennet/gesso.git, type: git}
-    version: 1.1.0
+  '@vandervennet/gesso@https://codeload.github.com/artvandervennet/gesso/tar.gz/65280d4e7c3fc6d5911cb09d374df0c32fd25ee6':
+    resolution: {gitHosted: true, integrity: sha512-RWPpHHYVJOWaPl2cmR1MqYLYvg6T3muAK7eMK4lWpcyPPqUJ6f9W+7TW65hABZY5nvUOywZp0YxC7PGYPc3e0A==, tarball: https://codeload.github.com/artvandervennet/gesso/tar.gz/65280d4e7c3fc6d5911cb09d374df0c32fd25ee6}
+    version: 1.2.5
     engines: {node: '>=18'}
     hasBin: true
 
@@ -4438,7 +4438,7 @@ snapshots:
       - rollup
       - unloader
 
-  '@vandervennet/gesso@git+ssh://git@github.com/artvandervennet/gesso.git#4042bd62b468aa0a1e839336d4ec9c52d1221023': {}
+  '@vandervennet/gesso@https://codeload.github.com/artvandervennet/gesso/tar.gz/65280d4e7c3fc6d5911cb09d374df0c32fd25ee6': {}
 
   '@vercel/nft@1.11.2(rollup@4.68.3)':
     dependencies:
