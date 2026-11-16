@@ -5,7 +5,13 @@ export interface Project {
   /** One link per canvas: the whole card follows it. */
   href?: string
   tags: string[]
-  credits?: string
+  /** Who else made it: plain text, and people with a site of their own as links. */
+  credits?: Array<string | Person>
+}
+
+export interface Person {
+  name: string
+  href: string
 }
 
 export const projects: Project[] = [
@@ -38,7 +44,7 @@ export const projects: Project[] = [
     ],
     href: 'https://github.com/artvandervennet/rabotpd-frontend',
     tags: ['Vue', 'Ionic', 'NestJS', 'TypeScript'],
-    credits: 'With Jelle Fauconnier, Sander Bockstaele and Robin Leytens.',
+    credits: ['With Jelle Fauconnier, Sander Bockstaele and Robin Leytens.'],
   },
   {
     id: 'bobber',
@@ -49,7 +55,7 @@ export const projects: Project[] = [
     ],
     href: 'https://github.com/artvandervennet/bobber',
     tags: ['Ionic', 'Vue', 'Capacitor'],
-    credits: 'Kilian Leroy and I came up with the idea together.',
+    credits: ['Kilian Leroy and I came up with the idea together.'],
   },
   {
     id: 'dengue',
@@ -59,6 +65,10 @@ export const projects: Project[] = [
       'I worked on both the front end and the back end.',
     ],
     tags: ['Dashboard', 'Front end', 'Back end'],
-    credits: 'With Michiel Van de Velde, Robin Leytens, Jelle Fauconnier, Sander Bockstaele and Antje Meiresonne.',
+    credits: [
+      'With ',
+      { name: 'Michiel Van de Velde', href: 'https://michielvandevelde.com/' },
+      ', Robin Leytens, Jelle Fauconnier, Sander Bockstaele and Antje Meiresonne.',
+    ],
   },
 ]
