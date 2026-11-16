@@ -6,3 +6,6 @@ Description=Deploy vandervennet.art when main has changed
 [Service]
 Type=oneshot
 ExecStart=%h/vandervennet.art/deploy/deploy.sh
+# what each deploy did, newest at the bottom
+StandardOutput=append:%h/.local/share/vandervennet.art/deploy.log
+StandardError=append:%h/.local/share/vandervennet.art/deploy.log

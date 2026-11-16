@@ -78,7 +78,7 @@ Settings:
 On the Pi:
 
 ```sh
-journalctl --user -u portfolio-deploy.service -n 50   # what the last deploys did
+tail -50 ~/.local/share/vandervennet.art/deploy.log    # what the last deploys did
 ~/vandervennet.art/deploy/deploy.sh --force           # deploy now
 pm2 logs portfolio                                    # the site's own log
 ```
