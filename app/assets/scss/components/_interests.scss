@@ -1,0 +1,15 @@
+@use '@vandervennet/gesso/scss' as *;
+
+// Gesso's .card-grid of .card. Each card is a heading and a paragraph; subgrid lines those up
+// across a row, so the paragraphs start level whatever the length of the headings.
+@include layer(components) {
+  .interests {
+    > li {
+      grid-template-rows: subgrid;
+      grid-row: span 2;
+      gap: space(3);
+    }
+
+    p { color: role(ink-muted); }
+  }
+}

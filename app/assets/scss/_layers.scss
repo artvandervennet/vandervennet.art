@@ -1,0 +1,5 @@
+// Gesso's cascade layers first, then this site's, so nothing here needs extra specificity.
+// This has to be the first CSS the site's stylesheet emits.
+@use '@vandervennet/gesso/scss' as *;
+
+@include layers(components);

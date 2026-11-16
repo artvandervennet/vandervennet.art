@@ -1,0 +1,111 @@
+@use '@vandervennet/gesso/scss' as *;
+
+@include layer(components) {
+  .guestbook {
+    display: grid;
+    gap: space(16);
+  }
+
+  .guestbook-part {
+    display: grid;
+    gap: space(4);
+
+    > p { max-inline-size: token(measure); }
+  }
+
+  // .field-row and .form-message come from Gesso
+  .guestbook-form {
+    display: grid;
+    gap: space(2);
+    max-inline-size: 40rem;
+  }
+
+  // Visitors' Solid cards, in Gesso's .card-grid
+  .card-wall {
+    gap: space(6);
+    margin-block-start: space(4);
+
+    // until the component has loaded and read the pod
+    solid-vcard-card {
+      @include not-upgraded {
+        display: block;
+        min-block-size: 6rem;
+
+        @include card;
+      }
+
+      // without JavaScript the card is the visitor's name, linked to their profile
+      a { display: block; padding: space(6); }
+    }
+  }
+
+  // A round-ish dab with a face or an initial in it
+  .face {
+    flex: none;
+    display: inline-grid;
+    place-items: center;
+    inline-size: 3rem;
+    block-size: 3rem;
+    object-fit: cover;
+    border-radius: radius(dab);
+    background: role(surface-sunken);
+    box-shadow: 0 0 0 1px role(rule);
+    font-family: font(display);
+    font-size: step(1);
+  }
+
+  .nods {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: space(3);
+    font-size: step(-1);
+
+    .faces {
+      display: flex;
+
+      > * {
+        inline-size: 2rem;
+        block-size: 2rem;
+        font-size: step(-1);
+        margin-inline-end: calc(-1 * #{space(2)});
+      }
+
+      > img {
+        object-fit: cover;
+        border-radius: radius(dab);
+        box-shadow: 0 0 0 2px role(surface);
+      }
+    }
+  }
+
+  .mentions {
+    display: grid;
+    gap: space(6);
+    list-style: none;
+    padding: 0;
+    margin-block-start: space(4);
+
+    > li {
+      display: flex;
+      gap: space(4);
+      align-items: flex-start;
+    }
+
+    .who { font-weight: weight(medium); }
+
+    time { color: role(ink-muted); font-weight: weight(regular); }
+
+    blockquote {
+      margin-block: space(2);
+      padding-inline-start: space(4);
+      border-inline-start: 4px solid pigment(partner);
+      max-inline-size: token(measure);
+    }
+
+    .where {
+      font-size: step(-1);
+      overflow-wrap: anywhere;
+    }
+  }
+}

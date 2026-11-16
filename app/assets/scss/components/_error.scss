@@ -1,0 +1,13 @@
+@use '@vandervennet/gesso/scss' as *;
+
+@include layer(components) {
+  .error-page {
+    min-block-size: 100svh;
+    display: grid;
+    place-content: center;
+    justify-items: center;
+    gap: space(4);
+    padding: space(16) token(gutter);
+    text-align: center;
+  }
+}

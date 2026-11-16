@@ -1,0 +1,13 @@
+@use '@vandervennet/gesso/scss' as *;
+
+// A fact that still has to be filled in. Loud on purpose, so it can't ship by accident.
+@include layer(components) {
+  .gap {
+    font-family: font(mono);
+    font-size: 0.85em;
+    background: role(tape);
+    color: role(on-tape);
+    padding: 0.1em 0.4em;
+    border-radius: radius(chip);
+  }
+}

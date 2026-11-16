@@ -1,0 +1,8 @@
+# One run of the deploy script. Started by portfolio-deploy.timer.
+#   ~/.config/systemd/user/portfolio-deploy.service
+[Unit]
+Description=Deploy vandervennet.art when main has changed
+
+[Service]
+Type=oneshot
+ExecStart=%h/vandervennet.art/deploy/deploy.sh

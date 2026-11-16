@@ -1,0 +1,27 @@
+@use '@vandervennet/gesso/scss' as *;
+
+@include layer(components) {
+  .timeline {
+    max-inline-size: 52rem;
+
+    // Until the component has painted the graph, it is an ordinary list.
+    @include not-upgraded {
+      > ol {
+        list-style: none;
+        padding: 0;
+        display: grid;
+        gap: space(8);
+      }
+
+      time {
+        display: block;
+        font-size: step(-1);
+        font-weight: weight(bold);
+      }
+
+      li > p { color: role(ink-muted); }
+    }
+
+    li > p + p { margin-block-start: space(2); }
+  }
+}

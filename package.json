@@ -1,0 +1,36 @@
+{
+  "name": "vandervennet-art",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "The portfolio of Art Van der Vennet, painted with Gesso.",
+  "packageManager": "pnpm@10.34.5",
+  "scripts": {
+    "dev": "nuxt dev",
+    "build": "nuxt build",
+    "preview": "node .output/server/index.mjs",
+    "typecheck": "nuxt typecheck",
+    "postinstall": "nuxt prepare",
+    "start": "node .output/server/index.mjs"
+  },
+  "dependencies": {
+    "@inrupt/solid-client": "^4.0.0",
+    "@kiliankil/solid-vcard-card": "^1.2.2",
+    "@vandervennet/gesso": "github:artvandervennet/gesso#v1.1.0",
+    "microformats-parser": "^2.0.6",
+    "nuxt": "^4.6.4",
+    "vue": "^3.5.0",
+    "vue-router": "^5.5.1"
+  },
+  "devDependencies": {
+    "sass-embedded": "^1.108.2",
+    "typescript": "^5.9.0",
+    "vue-tsc": "^3.0.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "@parcel/watcher"
+    ]
+  }
+}

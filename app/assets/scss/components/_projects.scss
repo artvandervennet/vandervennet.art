@@ -1,0 +1,34 @@
+@use '@vandervennet/gesso/scss' as *;
+
+// The grid and the card come from Gesso (.card-grid, <art-canvas bare>). This is what a
+// project card adds: its tags and its credit line.
+@include layer(components) {
+  .projects {
+    art-tape {
+      align-self: flex-start;
+      margin-block-start: space(2);
+    }
+
+    .tapes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: space(2);
+      margin-block-start: auto;
+      padding-block-start: space(2);
+    }
+
+    .credits { font-size: step(-1); }
+
+    // Before the component upgrades, a canvas is a plain card.
+    art-canvas {
+      @include not-upgraded {
+        display: grid;
+        gap: space(2);
+        align-content: start;
+        padding: space(6);
+
+        @include card;
+      }
+    }
+  }
+}

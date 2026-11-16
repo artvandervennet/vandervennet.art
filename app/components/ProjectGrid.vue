@@ -1,0 +1,25 @@
+<script setup lang="ts">
+import { projects } from '~/data/projects'
+
+provideHeadingScope()
+</script>
+
+<template>
+  <ul class="card-grid projects">
+    <li v-for="project in projects" :key="project.id">
+      <!-- Every project gets the same card: a bare canvas, text only. The first link inside
+           a canvas becomes the target of the whole card. -->
+      <art-canvas :seed="project.id" bare>
+        <SectionHeading>
+          <a v-if="project.href" :href="project.href">{{ project.title }}</a>
+          <template v-else>{{ project.title }}</template>
+        </SectionHeading>
+        <p v-for="(line, i) in project.text" :key="i"><GapText :text="line" /></p>
+        <p v-if="project.credits" class="credits">{{ project.credits }}</p>
+        <div class="tapes">
+          <art-tape v-for="tag in project.tags" :key="tag" :seed="tag">{{ tag }}</art-tape>
+        </div>
+      </art-canvas>
+    </li>
+  </ul>
+</template>
