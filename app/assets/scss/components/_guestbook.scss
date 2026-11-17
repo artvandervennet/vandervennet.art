@@ -14,10 +14,22 @@
   }
 
   // .field-row and .form-message come from Gesso
+  // A column of flex items rather than a grid: in flex a negative margin pulls the next item
+  // up, so an empty message can hand back the gap in front of it. A grid track can't do that.
   .guestbook-form {
-    display: grid;
+    display: flex;
+    flex-direction: column;
     gap: space(2);
     max-inline-size: 40rem;
+
+    // The messages stay in the page while empty so screen readers announce them when their
+    // text changes. Empty, they take no room and lose Gesso's error bar, but stay rendered:
+    // display: none would take them out of the accessibility tree.
+    .form-message:empty {
+      border: 0;
+      padding: 0;
+      margin-block-start: calc(-1 * #{space(2)});
+    }
   }
 
   // Visitors' Solid cards, in Gesso's .card-grid

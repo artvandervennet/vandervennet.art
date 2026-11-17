@@ -26,12 +26,21 @@ export default defineNuxtConfig({
       // data-scheme: light, dark, or "auto" to follow the visitor's system. <art-scheme> in the
       // header changes it and remembers the choice.
       htmlAttrs: { lang: 'en', 'data-theme': 'studio', 'data-scheme': 'auto' },
-      meta: [{ name: 'viewport', content: 'width=device-width, initial-scale=1' }],
+      meta: [
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        // Tells the browser before any CSS arrives that the page has both schemes, so the
+        // canvas, scrollbars and form controls start out in the visitor's scheme.
+        { name: 'color-scheme', content: 'light dark' },
+        // Lets Chrome scale 1rem with the text size set in the phone's settings. Everything is
+        // sized in rem, so the page grows with it. Browsers that don't know it ignore it.
+        { name: 'text-scale', content: 'scale' },
+      ],
       script: [
         {
-          // the remembered choice, applied before the first paint so the page never flashes
+          // the remembered choice, applied before the first paint so the page never flashes.
+          // The meta follows it, for the moment before the stylesheets have loaded.
           innerHTML:
-            "try { const s = localStorage.getItem('gesso-scheme'); if (s) document.documentElement.dataset.scheme = s; } catch {}",
+            "try { const s = localStorage.getItem('gesso-scheme'); if (s) { document.documentElement.dataset.scheme = s; document.querySelector('meta[name=\"color-scheme\"]').content = s === 'auto' ? 'light dark' : s; } } catch {}",
         },
       ],
     },

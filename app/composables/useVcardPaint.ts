@@ -41,7 +41,7 @@ const css = `
   }
   .contact a:hover { color: var(--link); text-decoration-thickness: 0.18em; }
   .contact a:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: 2px; }
-  @media (max-width: 420px) {
+  @media (width < 26.25rem) {
     .card { grid-template-columns: 3.5rem 1fr; padding: var(--space-4); }
     .avatar { width: 3.5rem; height: 3.5rem; }
     .name { font-size: var(--step-1); }

@@ -32,6 +32,7 @@ const error = ref('')
 const done = ref('')
 
 async function send() {
+  if (sending.value) return
   error.value = ''
   done.value = ''
   sending.value = true
@@ -72,14 +73,20 @@ async function send() {
           type="url"
           name="source"
           required
+          autocorrect="off"
+          autocapitalize="none"
+          spellcheck="false"
+          enterkeyhint="send"
           placeholder="https://your.site/a-post"
           :aria-describedby="error ? 'mention-error' : undefined"
-          :aria-invalid="error ? 'true' : undefined"
+          :aria-invalid="error ? 'true' : 'false'"
         >
-        <art-button><button type="submit" :disabled="sending">{{ sending ? 'Reading your post…' : 'Send webmention' }}</button></art-button>
+        <!-- aria-disabled, not disabled: a disabled button drops the focus it had when pressed -->
+        <art-button><button type="submit" :aria-disabled="sending ? 'true' : undefined">{{ sending ? 'Reading your post…' : 'Send webmention' }}</button></art-button>
       </div>
-      <p v-if="error" id="mention-error" class="form-message" role="alert">{{ error }}</p>
-      <p v-if="done" class="form-message" role="status">{{ done }}</p>
+      <!-- always in the page, empty until there is something to say (see VisitorCards.vue) -->
+      <p id="mention-error" class="form-message" role="alert">{{ error }}</p>
+      <p class="form-message" role="status">{{ done }}</p>
     </form>
 
     <p v-if="nods.length" class="nods">

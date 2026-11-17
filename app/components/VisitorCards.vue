@@ -14,6 +14,7 @@ const error = ref('')
 const done = ref('')
 
 async function leaveCard() {
+  if (sending.value) return
   error.value = ''
   done.value = ''
   sending.value = true
@@ -68,14 +69,21 @@ onMounted(() => {
           name="webid"
           required
           autocomplete="url"
+          autocorrect="off"
+          autocapitalize="none"
+          spellcheck="false"
+          enterkeyhint="send"
           placeholder="https://you.example/profile/card#me"
           :aria-describedby="error ? 'webid-error' : undefined"
-          :aria-invalid="error ? 'true' : undefined"
+          :aria-invalid="error ? 'true' : 'false'"
         >
-        <art-button><button type="submit" :disabled="sending">{{ sending ? 'Reading your profile…' : 'Leave my card' }}</button></art-button>
+        <!-- aria-disabled, not disabled: a disabled button drops the focus it had when pressed -->
+        <art-button><button type="submit" :aria-disabled="sending ? 'true' : undefined">{{ sending ? 'Reading your profile…' : 'Leave my card' }}</button></art-button>
       </div>
-      <p v-if="error" id="webid-error" class="form-message" role="alert">{{ error }}</p>
-      <p v-if="done" class="form-message" role="status">{{ done }}</p>
+      <!-- Both are always in the page, empty until there is something to say: a screen reader
+           announces a live region whose text changes, not one that appears. -->
+      <p id="webid-error" class="form-message" role="alert">{{ error }}</p>
+      <p class="form-message" role="status">{{ done }}</p>
     </form>
 
     <ul v-if="visitors.length" ref="wall" class="card-grid card-wall">
