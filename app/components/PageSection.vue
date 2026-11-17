@@ -7,6 +7,8 @@ const props = defineProps<{
   intro?: string
   /** Gesso paint: 1 to 8, or deep. */
   paint: string | number
+  /** The element the band is. The last one is the page's <footer>. */
+  tag?: 'section' | 'footer'
 }>()
 
 const level = provideHeadingScope()
@@ -14,7 +16,7 @@ const headingId = computed(() => `${props.id}-h`)
 </script>
 
 <template>
-  <section :id="id" class="band section" :aria-labelledby="headingId" :data-paint="paint">
+  <component :is="tag ?? 'section'" :id="id" class="band section" :aria-labelledby="headingId" :data-paint="paint">
     <div class="inner">
       <div class="section-head">
         <component :is="`h${level}`" :id="headingId" class="section-title">{{ title }}</component>
@@ -22,5 +24,5 @@ const headingId = computed(() => `${props.id}-h`)
       </div>
       <div class="section-body"><slot /></div>
     </div>
-  </section>
+  </component>
 </template>

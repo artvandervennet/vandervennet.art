@@ -11,42 +11,39 @@
     }
   }
 
-  // The last section and the footer are one block of deep paint, and read as one: no rule
-  // between them, and the signature in the bottom right corner like on a canvas.
-  // The footer is still its own element after <main>. On roomy screens it is pulled up beside
-  // the contact buttons, and the buttons keep a strip free on the right for it, so the two
-  // can never overlap: buttons that don't fit beside the signature wrap to the next line.
-  // On anything narrower the signature simply sits under the buttons.
-  $buttons-row: 3.25rem; // height of one row of contact buttons
-  $signature: 18rem;     // the strip kept free for the signature
+  // The footer is the last section: the contact links, and the signature in the bottom right
+  // corner like on a canvas. It is laid out as a section, so Gesso's footer row (a flex line of
+  // small muted text) is undone here.
+  .page-footer > .inner {
+    display: block;
+    padding-block: space(24) space(12);
+    font-size: inherit;
+    color: inherit;
 
-  .section:has(.contact) > .inner {
-    padding-block-end: space(6);
+    // beside the buttons, the signature's brush stroke hangs below them: room for it
+    @include from(roomy) { padding-block-end: space(24); }
 
-    @include from(roomy) { padding-block-end: space(12); }
+    @include from(wide) {
+      display: grid;
+      gap: 0 space(16);
+      justify-content: normal;
+      align-items: start;
+    }
   }
 
-  .contact .actions {
-    @include from(roomy) { padding-inline-end: $signature; }
-  }
+  // On roomy screens the signature sits beside the buttons, level with their bottom row;
+  // buttons that don't fit beside it wrap. Narrower, it goes under them.
+  .page-footer .section-body {
+    display: grid;
+    gap: space(8);
 
-  .page-footer {
-    .inner {
-      // flow-root keeps the row's negative margin inside the footer. Without it the margin
-      // collapses through, the whole footer moves up, and its paint covers the buttons.
-      display: flow-root;
-      padding-block: 0 space(12);
+    @include from(roomy) {
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: end;
+      // a narrow gap, so all three buttons still fit beside the signature on a 1440px screen
+      column-gap: space(2);
     }
 
-    .footer-row {
-      display: flex;
-      justify-content: flex-end;
-      // the row overlaps the buttons' line on roomy screens; clicks must still reach them
-      pointer-events: none;
-
-      @include from(roomy) {
-        margin-block-start: calc(-1 * (#{space(12)} + #{$buttons-row}));
-      }
-    }
+    art-signature { justify-self: end; }
   }
 }

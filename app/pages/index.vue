@@ -1,5 +1,5 @@
 <script setup lang="ts">
-// The whole site is this one page: a sticky header, a deep-paint hero, a painted section per topic, and the footer.
+// The whole site is this one page: a sticky header, a deep-paint hero, a painted section per topic, and the footer with the contact links.
 </script>
 
 <template>
@@ -46,10 +46,6 @@
           <VisitorCards />
           <WebMentions />
         </div>
-      </PageSection>
-
-      <PageSection id="contact" title="Say hello" paint="deep">
-        <ContactLinks />
       </PageSection>
     </main>
 
