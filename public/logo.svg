@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="art-logo-title">
+  <title id="art-logo-title">Art Van der Vennet</title>
+  <!-- Art Van der Vennet: the A of the wordmark on the hero's phthalo green. Its crossbar is the
+       yellow ochre brush stroke that underlines "Art" in the hero. -->
+  <rect width="512" height="512" rx="116" fill="#005c3f"/>
+  <!-- Young Serif's capital A, without its crossbar -->
+  <path fill="#f2f9f6" transform="translate(98 404) scale(0.402 -0.402)" d="M691 155Q707 114 722 87Q737 60 765 60Q775 60 777.5 56.5Q780 53 780 45L780 15Q780 0 765 0L458 0Q443 0 443 15L443 45Q443 53 445.5 56.5Q448 60 458 60Q485 60 510.5 80Q536 100 536 129Q536 136 534.5 142Q533 148 531 155L360 619L196 155Q194 148 193 141.5Q192 135 192 130Q192 98 218 79Q244 60 270 60Q281 60 283 56.5Q285 53 285 45L285 15Q285 0 270 0L21 0Q6 0 6 15L6 45Q6 53 8.5 56.5Q11 60 21 60Q51 60 66.5 88Q82 116 96 155L311 737Q315 750 328 750L449 750Q462 750 466 738Z"/>
+  <!-- The crossbar: one brush stroke, left to right over both legs. Three bristles side by side,
+       each lifting off at a different point, so the stroke ends ragged the way paint does -->
+  <g fill="none" stroke="#f1bf5b" stroke-width="26" stroke-linecap="round">
+    <path d="M84 300Q250 252 410 268"/>
+    <path d="M72 322Q250 272 440 288"/>
+    <path d="M80 343Q250 292 398 308"/>
+  </g>
+</svg>

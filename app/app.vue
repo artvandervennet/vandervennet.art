@@ -19,7 +19,11 @@ useSeoMeta({
 useHead({
   link: [
     { rel: 'canonical', href: site.url },
+    // The logo (public/logo.svg): the A of the wordmark, with the hero's brush stroke as its
+    // crossbar. The .ico is for browsers without SVG icons.
+    { rel: 'icon', href: `${baseURL}favicon.ico`, sizes: '32x32 48x48' },
     { rel: 'icon', type: 'image/svg+xml', href: `${baseURL}favicon.svg` },
+    { rel: 'apple-touch-icon', href: `${baseURL}apple-touch-icon.png` },
     { rel: 'me', href: site.github },
     // where other sites send their webmentions (see server/routes/webmention.post.ts)
     { rel: 'webmention', href: `${site.url}/webmention` },
