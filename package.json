@@ -16,7 +16,7 @@
   "dependencies": {
     "@inrupt/solid-client": "^4.0.0",
     "@kiliankil/solid-vcard-card": "^1.2.2",
-    "@vandervennet/gesso": "github:artvandervennet/gesso#v1.6.2",
+    "@vandervennet/gesso": "github:artvandervennet/gesso#v1.7.0",
     "microformats-parser": "^2.0.6",
     "nuxt": "^4.6.4",
     "vue": "^3.5.0",
