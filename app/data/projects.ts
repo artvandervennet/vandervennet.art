@@ -37,6 +37,16 @@ export const projects: Project[] = [
     credits: ['Under the great mentorship of ', bart, '.'],
   },
   {
+    id: 'pakske',
+    title: 'Pakske',
+    text: [
+      'A wishlist site for family and friends. You make a list and share the link. The people who buy for you tick what they are getting and leave each other notes, and you see none of it.',
+      'Open source, in Dutch and English, built with Nuxt and SQLite. It runs on a Raspberry Pi at home, next to this site.',
+    ],
+    href: 'https://pakske.vandervennet.art',
+    tags: ['Nuxt', 'TypeScript', 'SQLite'],
+  },
+  {
     id: 'odyfeed',
     title: 'Odyfeed',
     text: [
