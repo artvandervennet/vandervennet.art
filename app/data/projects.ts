@@ -14,6 +14,16 @@ export interface Person {
   href: string
 }
 
+// The people I credit more than once. Those with a site of their own are linked there;
+// the others on LinkedIn.
+const bart: Person = { name: 'Bart Delrue', href: 'https://ctrlaltdelrue.be/' }
+const michiel: Person = { name: 'Michiel Van de Velde', href: 'https://michielvandevelde.com/' }
+const robin: Person = { name: 'Robin Leytens', href: 'https://www.linkedin.com/in/robin-leytens-644a89379/' }
+const jelle: Person = { name: 'Jelle Fauconnier', href: 'https://www.linkedin.com/in/jelle-fauconnier-ba143a268/' }
+const antje: Person = { name: 'Antje Meiresonne', href: 'https://www.linkedin.com/in/antje-meiresonne/' }
+const sander: Person = { name: 'Sander Bockstaele', href: 'https://www.linkedin.com/in/sander-bockstaele-06127b283/' }
+const kilian: Person = { name: 'Kilian Leroy', href: 'https://www.linkedin.com/in/kilian-leroy-a626741a3/' }
+
 export const projects: Project[] = [
   {
     id: 'artui',
@@ -24,6 +34,7 @@ export const projects: Project[] = [
     ],
     href: 'https://artui.vandervennet.art',
     tags: ['React', 'TypeScript', 'Accessibility'],
+    credits: ['Under the great mentorship of ', bart, '.'],
   },
   {
     id: 'odyfeed',
@@ -44,7 +55,7 @@ export const projects: Project[] = [
     ],
     href: 'https://github.com/artvandervennet/rabotpd-frontend',
     tags: ['Vue', 'Ionic', 'NestJS', 'TypeScript'],
-    credits: ['With Jelle Fauconnier, Sander Bockstaele and Robin Leytens.'],
+    credits: ['With ', jelle, ', ', sander, ' and ', robin, '.'],
   },
   {
     id: 'bobber',
@@ -55,7 +66,7 @@ export const projects: Project[] = [
     ],
     href: 'https://github.com/artvandervennet/bobber',
     tags: ['Ionic', 'Vue', 'Capacitor'],
-    credits: ['Kilian Leroy and I came up with the idea together.'],
+    credits: [kilian, ' and I came up with the idea together.'],
   },
   {
     id: 'dengue',
@@ -65,10 +76,6 @@ export const projects: Project[] = [
       'I worked on both the front end and the back end.',
     ],
     tags: ['Dashboard', 'Front end', 'Back end'],
-    credits: [
-      'With ',
-      { name: 'Michiel Van de Velde', href: 'https://michielvandevelde.com/' },
-      ', Robin Leytens, Jelle Fauconnier, Sander Bockstaele and Antje Meiresonne.',
-    ],
+    credits: ['With ', michiel, ', ', robin, ', ', jelle, ', ', sander, ' and ', antje, '.'],
   },
 ]
