@@ -31,8 +31,9 @@
     }
   }
 
-  // On roomy screens the signature sits beside the buttons, level with their bottom row;
-  // buttons that don't fit beside it wrap. Narrower, it goes under them.
+  // On roomy screens the signature sits beside the buttons and the note under them, level with
+  // the note; buttons that don't fit beside it wrap. Narrower, it goes under them. Either way
+  // it is the last thing on the page.
   .page-footer .section-body {
     display: grid;
     gap: space(8);
@@ -42,6 +43,9 @@
       align-items: end;
       // a narrow gap, so all three buttons still fit beside the signature on a 1440px screen
       column-gap: space(2);
+
+      > * { grid-column: 1; }
+      art-signature { grid-column: 2; grid-row: 1 / span 2; }
     }
 
     art-signature { justify-self: end; }

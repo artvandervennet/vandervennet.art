@@ -13,6 +13,8 @@ export const site = {
     "Full-stack developer from Belgium. I started coding when I was ten, and since 2020 I teach kids to do the same.",
   email: "me@vandervennet.art",
   github: "https://github.com/artvandervennet",
+  // Where a fault in this site is reported: GitHub's page for a new issue in its repo.
+  newIssue: "https://github.com/artvandervennet/vandervennet.art/issues/new/choose",
   linkedin: "https://www.linkedin.com/in/art-van-der-vennet-8a9944267/",
   year: new Date().getFullYear(),
 } as const;
