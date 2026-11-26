@@ -4,6 +4,7 @@ import { site } from '~/data/site'
 // "Van der Vennet" breaks after "Van": the first line is "Art Van", the second "der Vennet"
 const [particle, ...words] = site.lastName.split(' ')
 const rest = words.join(' ')
+const home = useSiteUrl()
 </script>
 
 <template>
@@ -18,7 +19,7 @@ const rest = words.join(' ')
         <span data-wordmark><art-stroke pigment="stroke" seed="art" animate>{{ site.firstName }}</art-stroke> {{ particle }}</span> <span data-wordmark>{{ rest }}</span>
       </h1>
       <p class="lead p-note">{{ site.tagline }}</p>
-      <data class="u-url u-uid" :value="site.url" />
+      <data class="u-url u-uid" :value="home" />
       <div class="actions">
         <art-button size="l"><a href="#projects">See what I’ve built</a></art-button>
         <art-button size="l" variant="secondary"><a href="#about">Read how I got here</a></art-button>

@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import type { Mention, MentionType } from '#shared/types/guestbook'
-import { site } from '~/data/site'
 
 provideHeadingScope()
+
+const home = useSiteUrl()
 
 const { data: mentions, refresh } = await useFetch<Mention[]>('/api/mentions', { default: () => [] })
 onMounted(() => refresh())
@@ -38,7 +39,7 @@ async function send() {
   sending.value = true
   try {
     // In production the target is the site's public address; while developing it is this page.
-    const target = import.meta.dev ? `${location.origin}/` : `${site.url}/`
+    const target = import.meta.dev ? `${location.origin}/` : home
     await $fetch('/webmention', { method: 'POST', body: new URLSearchParams({ source: source.value, target }) })
     done.value = 'Got it. Your mention is below.'
     source.value = ''
@@ -64,7 +65,7 @@ async function send() {
 
     <form class="guestbook-form" action="/webmention" method="post" @submit.prevent="send">
       <!-- used when the form posts without JavaScript -->
-      <input type="hidden" name="target" :value="`${site.url}/`">
+      <input type="hidden" name="target" :value="home">
       <label for="mention-source">Address of your post</label>
       <div class="field-row">
         <input

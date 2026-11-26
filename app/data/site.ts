@@ -5,7 +5,7 @@ export const site = {
   name: "Art Van der Vennet",
   firstName: "Art",
   lastName: "Van der Vennet",
-  url: "https://vandervennet.art",
+  // The site's own address is runtimeConfig.public.siteUrl in nuxt.config.ts; use useSiteUrl().
   title: "Art Van der Vennet, full-stack developer",
   description:
     "Art Van der Vennet is a full-stack developer from Belgium. He started coding at ten, teaches kids to code at CodeFever, and builds accessible software.",

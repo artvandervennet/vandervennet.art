@@ -50,7 +50,9 @@ export default defineNuxtConfig({
     // Set NUXT_ADMIN_TOKEN on the server to be able to delete guestbook entries.
     adminToken: '',
     public: {
-      // The address the site is served from. Webmention targets must be on this host.
+      // The address the site is served from, set with NUXT_PUBLIC_SITE_URL. The canonical URL,
+      // Open Graph, the JSON-LD, robots.txt and the sitemap are built on it, and webmention
+      // targets must be on this host.
       siteUrl: 'https://vandervennet.art',
     },
   },

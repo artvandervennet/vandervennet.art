@@ -4,7 +4,11 @@ import type { NuxtError } from '#app'
 const props = defineProps<{ error: NuxtError }>()
 const missing = computed(() => props.error.statusCode === 404)
 
-useSeoMeta({ title: () => (missing.value ? 'Page not found' : 'Something went wrong') })
+// The status code already keeps an error out of search results; noindex says so in the page too.
+useSeoMeta({
+  title: () => (missing.value ? 'Page not found' : 'Something went wrong'),
+  robots: 'noindex',
+})
 </script>
 
 <template>
