@@ -20,6 +20,8 @@ pnpm typecheck
 | `app/components/` | One component per part of the page. `PageSection` is a painted band; `SectionHeading` renders a heading at the level its nesting adds up to. |
 | `app/composables/useHeadingLevel.ts` | Heading levels computed from nesting, standing in for the HTML `headingoffset` attribute until Chrome ships it. |
 | `app/plugins/gesso.client.ts` | Loads Gesso's custom elements after hydration. |
+| `app/app.vue` | The head for search engines and link previews: title, description, canonical URL, Open Graph, and the JSON-LD for the person and the site. |
+| `server/routes/robots.txt.ts`, `sitemap.xml.ts` | `/robots.txt` and `/sitemap.xml`. Add a page's path to the sitemap when the site gets one. |
 | `app/assets/scss/` | Only what is particular to this site: the project tags, the guestbook, the contact block. |
 | `deploy/` | The auto-deploy for the Raspberry Pi. |
 
@@ -95,7 +97,7 @@ The site runs on the Raspberry Pi, under pm2, behind the Cloudflare Tunnel. It d
 Settings:
 
 - `PORT` and `HOST`: where the site listens. The tunnel points `vandervennet.art` at this port.
-- `NUXT_PUBLIC_SITE_URL`: the address webmentions must target.
+- `NUXT_PUBLIC_SITE_URL`: the public address. The canonical URL, Open Graph tags, JSON-LD, robots.txt and the sitemap are built on it, and webmentions must target it.
 - `NUXT_GUESTBOOK_DIR`: where the two JSON lists live, outside the project folder so a deploy never touches them. It is read at build time, which is why the deploy script loads the settings file before building.
 - `NUXT_ADMIN_TOKEN`: needed to delete guestbook entries.
 
