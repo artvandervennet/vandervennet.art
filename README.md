@@ -85,11 +85,22 @@ It checks that this site really links to that page, finds where the other site t
 
 ## Deploy
 
-The site runs on the Raspberry Pi, under pm2, behind the Cloudflare Tunnel. It deploys itself: a timer on the Pi asks GitHub once a minute whether `main` has moved, and if so pulls, builds and reloads. GitHub never has to reach the Pi.
+The site runs on the Raspberry Pi, under pm2, behind the Cloudflare Tunnel. It deploys itself, but only releases: tags named `vMAJOR.MINOR.PATCH`, not `main`. A timer on the Pi asks GitHub once a minute for the newest release, and if it isn't live yet, checks it out, builds and reloads. GitHub never has to reach the Pi. A tag with more after the version, such as `v1.2.0-rc.1`, is never deployed.
+
+To make a release, on your own machine with `main` committed and pushed and the GitHub CLI logged in:
+
+```sh
+deploy/release.sh patch    # v1.2.3 to v1.2.4: fixes
+deploy/release.sh minor    # v1.2.3 to v1.3.0: something new
+deploy/release.sh major    # v1.2.3 to v2.0.0: a bigger change
+```
+
+It lists the commits since the last release and asks before it tags `main`, pushes the tag and makes a release page on GitHub. The first release names its version: `deploy/release.sh v1.0.0`. To take a release back, delete it with its tag (`gh release delete v1.2.4 --cleanup-tag`): the Pi deploys the newest release that is left.
 
 | File | What |
 |---|---|
-| `deploy/deploy.sh` | The deploy: fetch, stop if nothing changed, otherwise install, build and reload pm2. `--force` rebuilds anyway. |
+| `deploy/deploy.sh` | The deploy: fetch, stop if the newest release is live, otherwise check it out, install, build and reload pm2. `--force` rebuilds anyway. |
+| `deploy/release.sh` | Makes a release, on your own machine. |
 | `deploy/ecosystem.config.cjs` | How pm2 runs the site. |
 | `deploy/portfolio-deploy.service`, `.timer` | systemd user units that run the script every minute. |
 | `deploy/env.example` | The settings file, to copy to `~/.config/vandervennet.art.env` on the Pi. |
