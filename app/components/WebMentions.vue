@@ -59,7 +59,7 @@ async function send() {
   <div class="guestbook-part">
     <SectionHeading>Webmentions</SectionHeading>
     <p>
-      Wrote something that links to this page? If your site sends webmentions, it is probably here already.
+      Wrote something that links to this page? If your site sends <a href="https://www.w3.org/TR/webmention/">webmentions</a>, it is probably here already.
       If it doesn’t, paste the address of your post and I’ll go and read it.
     </p>
 

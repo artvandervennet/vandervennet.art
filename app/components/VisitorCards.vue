@@ -54,7 +54,7 @@ onMounted(() => {
   <div class="guestbook-part">
     <SectionHeading>Leave your Solid card</SectionHeading>
     <p>
-      Have a Solid pod? Leave your WebID and your card goes up below, read straight from your pod.
+      Have a <a href="https://solidproject.org/TR/protocol">Solid pod</a>? Leave your WebID and your card goes up below, read straight from your pod.
       I only keep the address, so what the card says stays yours to change.
     </p>
 
